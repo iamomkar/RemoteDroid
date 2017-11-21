@@ -2,10 +2,8 @@ package com.creativeminds.remotedroid;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
 import android.net.wifi.WifiManager;
-import android.provider.Telephony;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -99,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         return (valueEditText.length() > 0) ? Integer.parseInt(valueEditText) : DEFAULT_PORT;
     }
 
+    @NonNull
     private String getIpAccess() {
         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
         int ipAddress = wifiManager.getConnectionInfo().getIpAddress();
@@ -111,9 +110,6 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         stopAndroidWebServer();
         isStarted = false;
-        /*if (broadcastReceiverNetworkState != null) {
-            unregisterReceiver(broadcastReceiverNetworkState);
-        }*/
     }
 
     public void checkpermissions() {

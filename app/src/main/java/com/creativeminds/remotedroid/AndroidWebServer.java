@@ -15,10 +15,7 @@ import java.util.List;
 import java.util.Map;
  
 import fi.iki.elonen.NanoHTTPD; 
- 
-/** 
- * Created by Mikhael LOPEZ on 14/12/2015. 
- */ 
+
 public class AndroidWebServer extends NanoHTTPD { 
 
     private Context context;
@@ -98,11 +95,6 @@ public class AndroidWebServer extends NanoHTTPD {
         }else {
             msg = "<html><body><h1>404 Not Found</h1>\n";
         }
-       /* if (parms.get("username") == null) {
-            msg += "<form action='?' method='get'>\n  <p>Your name: <input type='text' name='username'></p>\n" + "</form>\n";
-        } else { 
-            msg += "<p>Hello, " + parms.get("username") + "!</p>";
-        } */
 
         return newFixedLengthResponse( msg + "</body></html>\n" );
     }
